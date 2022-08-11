@@ -1,8 +1,10 @@
 # EasyUltrasonic
 - An Arduino library used to work with ultrasonic sensors in an easy way for measuring distance.
 
-## Specifications / Requirements
+## Specifications
 - Works with the HC-SR04 ultrasonic sensor and the DHT temperature/humidity sensors for getting precise distance values.
+
+## Requirements
 - You will need to use at least Arduino IDE 1.0.0 or newer version.
 
 ## Usage
