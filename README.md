@@ -12,7 +12,7 @@
 #include "EasyUltrasonic.h"
 ```
 
-- Create the EasyUltrasonic object:
+- Create an EasyUltrasonic object:
 
 ```c++
 EasyUltrasonic ultrasonic;
