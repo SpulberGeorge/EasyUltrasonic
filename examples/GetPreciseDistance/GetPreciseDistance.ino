@@ -62,7 +62,7 @@ SOFTWARE.
 
 */
 
-#include "EasyUltrasonic.h"
+#include <EasyUltrasonic.h>
 #include "DHT.h"
 
 #define DHTPIN 2  // Digital pin connected to the DHT sensor

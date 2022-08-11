@@ -24,6 +24,7 @@ SOFTWARE.
 
 */
 
+#include "Arduino.h"
 #include "EasyUltrasonic.h"
 
 namespace easyultrasonic{

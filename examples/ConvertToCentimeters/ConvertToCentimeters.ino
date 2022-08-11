@@ -48,7 +48,7 @@ SOFTWARE.
 
 */
 
-#include "EasyUltrasonic.h"
+#include <EasyUltrasonic.h>
 
 #define TRIGPIN 5 // Digital pin connected to the trig pin of the ultrasonic sensor
 #define ECHOPIN 6 // Digital pin connected to the echo pin of the ultrasonic sensor
