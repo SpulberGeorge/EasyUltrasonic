@@ -8,7 +8,7 @@
 - You will need to use at least Arduino IDE 1.0.0 or newer version.
 
 ## Hardware Requirements
-- An Arduino board (e.g. Arduino UNO)
+- An Arduino compatible board (e.g. Arduino UNO)
 - A HC-SR04 ultrasonic sensor
 - (Optional - For aqqurate distance values) A DHT temperature/humidity sensor (e.g. DHT 11)
 - Some female to male wires or a breadboard with male to male wires
