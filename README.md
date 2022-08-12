@@ -30,7 +30,7 @@ EasyUltrasonic ultrasonic;
 - Functions:
 
 ```c++
-attach(); // Sets the sensor pins as output/input
+attach(uint8_t trigPin, uint8_t echoPin, float minDistance = 2, float maxDistance = 400); // Sets the sensor pins as output/input
 
 getDistanceCM(); // Returns the calculated distance in centimeters
 
