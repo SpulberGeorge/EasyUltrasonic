@@ -15,8 +15,8 @@ EasyUltrasonic  KEYWORD1
 attach  KEYWORD2
 getDistanceCM   KEYWORD2
 getDistanceIN   KEYWORD2
-getDistanceAdvCM    KEYWORD2
-getDistanceAdvIN    KEYWORD2
+getPreciseDistanceCM    KEYWORD2
+getPreciseDistanceIN    KEYWORD2
 
 convertToCM KEYWORD2
 convertToIN KEYWORD2

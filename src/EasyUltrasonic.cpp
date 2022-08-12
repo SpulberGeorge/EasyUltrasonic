@@ -88,7 +88,7 @@ namespace easyultrasonic{
     return distance;
   }
 
-  float EasyUltrasonic::getDistanceAdvCM(float temp, float hum){
+  float EasyUltrasonic::getPreciseDistanceCM(float temp, float hum){
     this->temp = temp;
     this->hum = hum;
 
@@ -120,7 +120,7 @@ namespace easyultrasonic{
     return distance;
   }
 
-  float EasyUltrasonic::getDistanceAdvIN(float temp, float hum){
+  float EasyUltrasonic::getPreciseDistanceIN(float temp, float hum){
     this->temp = temp;
     this->hum = hum;
 

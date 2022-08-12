@@ -36,9 +36,9 @@ getDistanceCM(); // Returns the calculated distance in centimeters
 
 getDistanceIN(); // Returns the calculated distance in inches
 
-getDistanceAdvCM(float temp, float hum); // Calculates an accurate distance by knowing the temperature and humidity of the environment and  returns the calculated distance in centimeters
+getPreciseDistanceCM(float temp, float hum); // Calculates an accurate distance by knowing the temperature and humidity of the environment and  returns the calculated distance in centimeters
 
-getDistanceAdvIN(float temp, float hum); // Calculates an accurate distance by knowing the temperature and humidity of the environment and returns the calculated distance in inches
+getPreciseDistanceIN(float temp, float hum); // Calculates an accurate distance by knowing the temperature and humidity of the environment and returns the calculated distance in inches
 
 convertToCM(float distanceValueIN); // Returns the converted value from inches to centimeters
 

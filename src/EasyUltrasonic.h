@@ -48,8 +48,8 @@ namespace easyultrasonic{
       float getDistanceCM(); // Returns the calculated distance in centimeters
       float getDistanceIN(); // Returns the calculated distance in inches
 
-      float getDistanceAdvCM(float temp, float hum); // Calculates an accurate distance by knowing the temperature and humidity of the environment and returns the calculated distance in centimeters
-      float getDistanceAdvIN(float temp, float hum); // Calculates an accurate distance by knowing the temperature and humidity of the environment and returns the calculated distance in inches
+      float getPreciseDistanceCM(float temp, float hum); // Calculates an accurate distance by knowing the temperature and humidity of the environment and returns the calculated distance in centimeters
+      float getPreciseDistanceIN(float temp, float hum); // Calculates an accurate distance by knowing the temperature and humidity of the environment and returns the calculated distance in inches
   };
 
   float convertToCM(float distanceValueIN); // Returns the converted value from inches to centimeters

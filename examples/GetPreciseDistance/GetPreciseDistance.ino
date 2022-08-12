@@ -85,9 +85,9 @@ void loop() {
   float temp = dht.readTemperature(); // Read temperature as Celsius (the default)
   float hum = dht.readHumidity(); // Read humidity
 
-  float distanceCM = ultrasonic.getDistanceAdvCM(temp, hum); // Read the distance in centimeters
+  float distanceCM = ultrasonic.getPreciseDistanceCM(temp, hum); // Read the distance in centimeters
 
-  // float distanceIN = ultrasonic.getDistanceAdvIN(temp, hum); // Uncomment if you want to get the distance in inches
+  // float distanceIN = ultrasonic.getPreciseDistanceIN(temp, hum); // Uncomment if you want to get the distance in inches
   
   // Print the distance value in Serial Monitor
   Serial.print(distanceCM);
