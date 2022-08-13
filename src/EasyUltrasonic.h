@@ -43,7 +43,7 @@ namespace easyultrasonic{
       float maxDistance;
 
     public:
-      void attach(uint8_t trigPin, uint8_t echoPin, float minDistance = 2, float maxDistance = 400); // Sets the sensor pins as output/input
+      void attach(uint8_t trigPin, uint8_t echoPin, float minDistance = 2, float maxDistance = 400); // Sets the sensor pins as output/input (The default values for the minDistance and maxDistance parameters correspond to the HC-SR04 ultrasonic sensor distance range)
 
       float getDistanceCM(); // Returns the calculated distance in centimeters
       float getDistanceIN(); // Returns the calculated distance in inches

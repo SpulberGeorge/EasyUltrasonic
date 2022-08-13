@@ -93,6 +93,7 @@ void setup() {
   Serial.begin(9600); // Open the serial port
 
   ultrasonic.attach(TRIGPIN, ECHOPIN); // Attaches the ultrasonic sensor on the specified pins on the ultrasonic object
+  // ultrasonic.attach(TRIGPIN, ECHOPIN, 3, 300); // Uncomment if you are using the Ping))) ultrasonic sensor
   dht.begin();
 }
 
