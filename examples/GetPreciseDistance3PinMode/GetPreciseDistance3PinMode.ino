@@ -1,12 +1,15 @@
 /*
 
-Example sketch for the HC-SR04 ultrasonic sensor / Ping))) ultrasonic sensor
+Example sketch for the HC-SR04 ultrasonic sensor / Ping))) ultrasonic sensor and DHT11 temperature/humidity sensor
 Written by Spulber George
 
-REQUIRES the following Arduino library:
+REQUIRES the following Arduino libraries:
 - EasyUltrasonic: https://github.com/SpulberGeorge/EasyUltrasonic
+- DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
+- Adafruit Unified Sensor: https://github.com/adafruit/Adafruit_Sensor
 
-This sketch converts the distance measured by the ultrasonic sensor from centimeters to inches.
+This sketch prints the distance measured by the ultrasonic sensor in the 3 Pin Mode to the Serial Monitor
+with the help of the DHT11 temperature/humidity sensor for getting precise distance values.
 
 ###########################################
                 CONNECTIONS:
@@ -14,26 +17,6 @@ This sketch converts the distance measured by the ultrasonic sensor from centime
 
 
 ###########################################
-                4 Pin Mode:
-###########################################
-
-###########################################
-              HC-SR04 sensor:
-###########################################
-
-          VCC -> 5V
-          trig pin -> digital pin 5
-          echo pin -> digital pin 6
-          GND -> GND
-          
-###########################################
-
-
-###########################################
-                3 Pin Mode:
-###########################################
-
-########################################### 
               HC-SR04 sensor:
 ###########################################
 
@@ -56,6 +39,17 @@ This sketch converts the distance measured by the ultrasonic sensor from centime
           SIG -> digital pin 5
           GND -> GND
           
+###########################################
+
+
+###########################################
+              DHT11 sensor:
+###########################################
+
+            Sig -> digital pin 2
+            VCC -> 5V
+            GND -> GND
+
 ###########################################
 
 MIT License
@@ -82,30 +76,37 @@ SOFTWARE.
 
 */
 
-// This sketch uses the 4 Pin Mode with the HC-SR04 sensor
-// Set both the TRIGPIN and ECHOPIN to 5 if you want to use your HC-SR04/Ping))) ultrasonic sensor in the 3 Pin Mode
-
 #include <EasyUltrasonic.h>
+#include "DHT.h"
 
+#define DHTPIN 2  // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT11 // The type of DHT sensor that is used
+
+// If you want to use your HC-SR04/Ping))) ultrasonic sensor in the 3 Pin Mode, then the TRIGPIN value will need to be the same as the ECHOPIN value:
 #define TRIGPIN 5 // Digital pin connected to the trig pin of the ultrasonic sensor
-#define ECHOPIN 6 // Digital pin connected to the echo pin of the ultrasonic sensor
+#define ECHOPIN 5 // Digital pin connected to the echo pin of the ultrasonic sensor
 
 EasyUltrasonic ultrasonic; // Create the ultrasonic object
+DHT dht(DHTPIN, DHTTYPE);  // Initialize DHT sensor
 
 void setup() {
   Serial.begin(9600); // Open the serial port
 
   ultrasonic.attach(TRIGPIN, ECHOPIN); // Attaches the ultrasonic sensor on the specified pins on the ultrasonic object
+  dht.begin();
 }
 
 void loop() {
-  float distanceCM = ultrasonic.getDistanceCM(); // Read the distance in centimeters
+  float temp = dht.readTemperature(); // Read temperature as Celsius (the default)
+  float hum = dht.readHumidity(); // Read humidity
 
-  float distanceIN = convertToIN(distanceCM); // Convert the distance to inches
+  float distanceCM = ultrasonic.getPreciseDistanceCM(temp, hum); // Read the distance in centimeters
+
+  // float distanceIN = ultrasonic.getPreciseDistanceIN(temp, hum); // Uncomment if you want to get the distance in inches
   
-  // Print the new distance value in Serial Monitor
-  Serial.print(distanceIN);
-  Serial.println(" in");
+  // Print the distance value in Serial Monitor
+  Serial.print(distanceCM);
+  Serial.println(" cm");
 
   delay(100);
 }

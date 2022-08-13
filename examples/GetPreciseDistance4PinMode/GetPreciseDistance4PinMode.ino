@@ -1,12 +1,15 @@
 /*
 
-Example sketch for the HC-SR04 ultrasonic sensor
+Example sketch for the HC-SR04 ultrasonic sensor and DHT11 temperature/humidity sensor
 Written by Spulber George
 
-REQUIRES the following Arduino library:
+REQUIRES the following Arduino libraries:
 - EasyUltrasonic: https://github.com/SpulberGeorge/EasyUltrasonic
+- DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
+- Adafruit Unified Sensor: https://github.com/adafruit/Adafruit_Sensor
 
-This sketch prints the distance measured by the ultrasonic sensor to the Serial Monitor.
+This sketch prints the distance measured by the ultrasonic sensor in the 4 Pin Mode to the Serial Monitor
+with the help of the DHT11 temperature/humidity sensor for getting precise distance values.
 
 ###########################################
                 CONNECTIONS:
@@ -22,6 +25,17 @@ This sketch prints the distance measured by the ultrasonic sensor to the Serial 
           echo pin -> digital pin 6
           GND -> GND
           
+###########################################
+
+
+###########################################
+              DHT11 sensor:
+###########################################
+
+            Sig -> digital pin 2
+            VCC -> 5V
+            GND -> GND
+
 ###########################################
 
 MIT License
@@ -49,24 +63,35 @@ SOFTWARE.
 */
 
 #include <EasyUltrasonic.h>
+#include "DHT.h"
+
+#define DHTPIN 2  // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT11 // The type of DHT sensor that is used
 
 #define TRIGPIN 5 // Digital pin connected to the trig pin of the ultrasonic sensor
 #define ECHOPIN 6 // Digital pin connected to the echo pin of the ultrasonic sensor
 
 EasyUltrasonic ultrasonic; // Create the ultrasonic object
+DHT dht(DHTPIN, DHTTYPE);  // Initialize DHT sensor
 
 void setup() {
   Serial.begin(9600); // Open the serial port
 
   ultrasonic.attach(TRIGPIN, ECHOPIN); // Attaches the ultrasonic sensor on the specified pins on the ultrasonic object
+  dht.begin();
 }
 
 void loop() {
-  float distanceCM = ultrasonic.getDistanceCM(); // Read the distance in centimeters
+  float temp = dht.readTemperature(); // Read temperature as Celsius (the default)
+  float hum = dht.readHumidity(); // Read humidity
 
-  // float distanceIN = ultrasonic.getDistanceIN(); // Uncomment if you want to get the distance in inches
+  float distanceCM = ultrasonic.getPreciseDistanceCM(temp, hum); // Read the distance in centimeters
+
+  // float distanceIN = ultrasonic.getPreciseDistanceIN(temp, hum); // Uncomment if you want to get the distance in inches
   
   // Print the distance value in Serial Monitor
   Serial.print(distanceCM);
   Serial.println(" cm");
+
+  delay(100);
 }

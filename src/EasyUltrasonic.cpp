@@ -39,50 +39,106 @@ namespace easyultrasonic{
   }
 
   float EasyUltrasonic::getDistanceCM(){
-    // Calculate the duration:
-    digitalWrite(trigPin, LOW);
-    delayMicroseconds(2);
+    // If the trig pin is connected to the same pin as the echo pin then we will calculate the distance in the "3 Pin Mode":
+    if(trigPin == echoPin){
+      // Calculate the duration:
+      pinMode(trigPin, OUTPUT); 
+      digitalWrite(trigPin, LOW);
+      delayMicroseconds(2);
+ 
+      digitalWrite(trigPin, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(trigPin, LOW);
+      pinMode(echoPin, INPUT);
 
-    digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin, LOW);
+      duration = pulseIn(echoPin, HIGH);
 
-    duration = pulseIn(echoPin, HIGH);
+      // Calculate the distance in centimeters:
+      distance = (duration / 2) * 0.0343;
+      
+      if (distance > maxDistance){
+        distance = maxDistance;
+      }
 
-    // Calculate the distance in centimeters:
-    distance = (duration / 2) * 0.0343;
+      if (distance < minDistance){
+        distance = 0;
+      }
 
-    if (distance > maxDistance){
-      distance = maxDistance;
-    }
+    // If the trig pin is not connected to the same pin as the echo pin then we will calculate the distance in the "4 Pin Mode":
+    } else{
+        // Calculate the duration:
+        digitalWrite(trigPin, LOW);
+        delayMicroseconds(2);
 
-    if (distance < minDistance){
-      distance = 0;
+        digitalWrite(trigPin, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(trigPin, LOW);
+
+        duration = pulseIn(echoPin, HIGH);
+
+        // Calculate the distance in centimeters:
+        distance = (duration / 2) * 0.0343;
+
+        if (distance > maxDistance){
+          distance = maxDistance;
+        }
+
+        if (distance < minDistance){
+          distance = 0;
+        }
     }
 
     return distance;
   }
 
   float EasyUltrasonic::getDistanceIN(){
-    // Calculate the duration:
-    digitalWrite(trigPin, LOW);
-    delayMicroseconds(2);
+    // If the trig pin is connected to the same pin as the echo pin then we will calculate the distance in the "3 Pin Mode":
+    if(trigPin == echoPin){
+      // Calculate the duration:
+      pinMode(trigPin, OUTPUT); 
+      digitalWrite(trigPin, LOW);
+      delayMicroseconds(2);
+ 
+      digitalWrite(trigPin, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(trigPin, LOW);
+      pinMode(echoPin, INPUT);
 
-    digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin, LOW);
+      duration = pulseIn(echoPin, HIGH);
 
-    duration = pulseIn(echoPin, HIGH);
+      // Calculate the distance in inches:
+      distance = ((duration / 2) * 0.0343) / 2.54;
+      
+      if ((distance * 2.54) > maxDistance){
+        distance = maxDistance / 2.54;
+      }
 
-    // Calculate the distance in inches:
-    distance = ((duration / 2) * 0.0343) / 2.54;
+      if ((distance * 2.54) < minDistance){
+        distance = 0;
+      }
+      
+    // If the trig pin is not connected to the same pin as the echo pin then we will calculate the distance in the "4 Pin Mode":
+    } else{
+        // Calculate the duration:
+        digitalWrite(trigPin, LOW);
+        delayMicroseconds(2);
 
-    if ((distance * 2.54) > maxDistance){
-      distance = maxDistance / 2.54;
-    }
+        digitalWrite(trigPin, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(trigPin, LOW);
 
-    if ((distance * 2.54) < minDistance){
-      distance = 0;
+        duration = pulseIn(echoPin, HIGH);
+
+        // Calculate the distance in inches:
+        distance = ((duration / 2) * 0.0343) / 2.54;
+
+        if ((distance * 2.54) > maxDistance){
+          distance = maxDistance / 2.54;
+        }
+
+        if ((distance * 2.54) < minDistance){
+          distance = 0;
+        }
     }
 
     return distance;
@@ -96,25 +152,53 @@ namespace easyultrasonic{
     soundSpeed = 331.4 + (0.606 * this->temp) + (0.0124 * this->hum);
     soundSpeed = soundSpeed / 10000;
 
-    // Calculate the duration:
-    digitalWrite(trigPin, LOW);
-    delayMicroseconds(2);
+    // If the trig pin is connected to the same pin as the echo pin then we will calculate the distance in the "3 Pin Mode":
+    if(trigPin == echoPin){
+      // Calculate the duration:
+      pinMode(trigPin, OUTPUT); 
+      digitalWrite(trigPin, LOW);
+      delayMicroseconds(2);
+ 
+      digitalWrite(trigPin, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(trigPin, LOW);
+      pinMode(echoPin, INPUT);
 
-    digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin, LOW);
+      duration = pulseIn(echoPin, HIGH);
 
-    duration = pulseIn(echoPin, HIGH);
+      // Calculate the distance in centimeters:
+      distance = (duration / 2) * soundSpeed;
+      
+      if (distance > maxDistance){
+        distance = maxDistance;
+      }
 
-    // Calculate the distance in centimeters:
-    distance = (duration / 2) * soundSpeed;
+      if (distance < minDistance){
+        distance = 0;
+      }
+      
+    // If the trig pin is not connected to the same pin as the echo pin then we will calculate the distance in the "4 Pin Mode":
+    } else{
+        // Calculate the duration:
+        digitalWrite(trigPin, LOW);
+        delayMicroseconds(2);
 
-    if (distance > maxDistance){
-      distance = maxDistance;
-    }
+        digitalWrite(trigPin, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(trigPin, LOW);
 
-    if (distance < minDistance){
-      distance = 0;
+        duration = pulseIn(echoPin, HIGH);
+
+        // Calculate the distance in centimeters:
+        distance = (duration / 2) * soundSpeed;
+
+        if (distance > maxDistance){
+          distance = maxDistance;
+        }
+
+        if (distance < minDistance){
+          distance = 0;
+        }
     }
 
     return distance;
@@ -128,25 +212,53 @@ namespace easyultrasonic{
     soundSpeed = 331.4 + (0.606 * this->temp) + (0.0124 * this->hum);
     soundSpeed = soundSpeed / 10000;
 
-    // Calculate the duration:
-    digitalWrite(trigPin, LOW);
-    delayMicroseconds(2);
+    // If the trig pin is connected to the same pin as the echo pin then we will calculate the distance in the "3 Pin Mode":
+    if(trigPin == echoPin){
+      // Calculate the duration:
+      pinMode(trigPin, OUTPUT); 
+      digitalWrite(trigPin, LOW);
+      delayMicroseconds(2);
+ 
+      digitalWrite(trigPin, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(trigPin, LOW);
+      pinMode(echoPin, INPUT);
 
-    digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin, LOW);
+      duration = pulseIn(echoPin, HIGH);
 
-    duration = pulseIn(echoPin, HIGH);
+      // Calculate the distance in inches:
+      distance = ((duration / 2) * soundSpeed) / 2.54;
+      
+      if ((distance * 2.54) > maxDistance){
+        distance = maxDistance / 2.54;
+      }
 
-    // Calculate the distance in inches:
-    distance = ((duration / 2) * soundSpeed) / 2.54;
+      if ((distance * 2.54) < minDistance){
+        distance = 0;
+      }
 
-    if ((distance * 2.54) > maxDistance){
-      distance = maxDistance / 2.54;
-    }
+    // If the trig pin is not connected to the same pin as the echo pin then we will calculate the distance in the "4 Pin Mode":
+    } else{
+        // Calculate the duration:
+        digitalWrite(trigPin, LOW);
+        delayMicroseconds(2);
 
-    if ((distance * 2.54) < minDistance){
-      distance = 0;
+        digitalWrite(trigPin, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(trigPin, LOW);
+
+        duration = pulseIn(echoPin, HIGH);
+
+        // Calculate the distance in inches:
+        distance = ((duration / 2) * soundSpeed) / 2.54;
+
+        if ((distance * 2.54) > maxDistance){
+          distance = maxDistance / 2.54;
+        }
+
+        if ((distance * 2.54) < minDistance){
+          distance = 0;
+        }
     }
 
     return distance;

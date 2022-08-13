@@ -6,7 +6,7 @@ Written by Spulber George
 REQUIRES the following Arduino library:
 - EasyUltrasonic: https://github.com/SpulberGeorge/EasyUltrasonic
 
-This sketch converts the distance measured by the ultrasonic sensor from centimeters to inches.
+This sketch prints the distance measured by the ultrasonic sensor in the 3 Pin Mode to the Serial Monitor.
 
 ###########################################
                 CONNECTIONS:
@@ -14,26 +14,6 @@ This sketch converts the distance measured by the ultrasonic sensor from centime
 
 
 ###########################################
-                4 Pin Mode:
-###########################################
-
-###########################################
-              HC-SR04 sensor:
-###########################################
-
-          VCC -> 5V
-          trig pin -> digital pin 5
-          echo pin -> digital pin 6
-          GND -> GND
-          
-###########################################
-
-
-###########################################
-                3 Pin Mode:
-###########################################
-
-########################################### 
               HC-SR04 sensor:
 ###########################################
 
@@ -82,13 +62,11 @@ SOFTWARE.
 
 */
 
-// This sketch uses the 4 Pin Mode with the HC-SR04 sensor
-// Set both the TRIGPIN and ECHOPIN to 5 if you want to use your HC-SR04/Ping))) ultrasonic sensor in the 3 Pin Mode
-
 #include <EasyUltrasonic.h>
 
+// If you want to use your HC-SR04/Ping))) ultrasonic sensor in the 3 Pin Mode, then the TRIGPIN value will need to be the same as the ECHOPIN value:
 #define TRIGPIN 5 // Digital pin connected to the trig pin of the ultrasonic sensor
-#define ECHOPIN 6 // Digital pin connected to the echo pin of the ultrasonic sensor
+#define ECHOPIN 5 // Digital pin connected to the echo pin of the ultrasonic sensor
 
 EasyUltrasonic ultrasonic; // Create the ultrasonic object
 
@@ -101,11 +79,11 @@ void setup() {
 void loop() {
   float distanceCM = ultrasonic.getDistanceCM(); // Read the distance in centimeters
 
-  float distanceIN = convertToIN(distanceCM); // Convert the distance to inches
+  // float distanceIN = ultrasonic.getDistanceIN(); // Uncomment if you want to get the distance in inches
   
-  // Print the new distance value in Serial Monitor
-  Serial.print(distanceIN);
-  Serial.println(" in");
+  // Print the distance value in Serial Monitor
+  Serial.print(distanceCM);
+  Serial.println(" cm");
 
   delay(100);
 }
