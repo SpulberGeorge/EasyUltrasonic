@@ -68,13 +68,13 @@ attach(TRIGPIN, ECHOPIN, 3, 300);
 ![HCGetDistance3PinMode](https://user-images.githubusercontent.com/79027106/184505005-2b49aabb-0827-4540-8623-5e2bcdd73d4a.png)
 
 - Calculating precise distance with the HC-SR04 ultrasonic sensor in the 3 Pin Mode, a DHT temperature/humidity sensor and an Arduino UNO board:
-![HCGetPreciseDistance3PinMode](https://user-images.githubusercontent.com/79027106/184505043-1d185736-7efe-41e9-aef7-b53c5f935e15.png)
+![HCGetPreciseDistance3PinMode](https://user-images.githubusercontent.com/79027106/184535882-7343c581-5664-447b-aed0-eb847f5eb1ed.png)
 
 - Calculating normal distance with the Ping))) ultrasonic sensor in the 3 Pin Mode and an Arduino UNO board:
 ![PingGetDistance3PinMode](https://user-images.githubusercontent.com/79027106/184505140-cad9b64a-0014-4349-9d13-b555fb82de96.png)
 
 - Calculating precise distance with the Ping))) ultrasonic sensor in the 3 Pin Mode, a DHT temperature/humidity sensor and an Arduino UNO board:
-![PingGetPreciseDistance3PinMode](https://user-images.githubusercontent.com/79027106/184505405-8c9426d8-a518-4328-ad93-4c67922c93c1.png)
+![PingGetPreciseDistance3PinMode](https://user-images.githubusercontent.com/79027106/184536322-500ab0c5-1662-461e-8a00-838912380ad9.png)
 
 ### 4 Pin Mode - Works for the HC-SR04 ultrasonic sensor -
 
@@ -82,7 +82,7 @@ attach(TRIGPIN, ECHOPIN, 3, 300);
 ![HCGetDistance4PinMode](https://user-images.githubusercontent.com/79027106/184504951-74e345fb-5902-4f9e-8160-0cca3000fcf1.png)
 
 - Calculating precise distance with the HC-SR04 ultrasonic sensor in the 4 Pin Mode, a DHT temperature/humidity sensor and an Arduino UNO board:
-![HCGetPreciseDistance4PinMode](https://user-images.githubusercontent.com/79027106/184504979-9234dbf1-c4da-4eb1-840c-18db7732e497.jpg)
+![HCGetPreciseDistance4PinMode](https://user-images.githubusercontent.com/79027106/184535707-3ef86904-0eab-4093-af41-e97e39074937.jpg)
 
 #### Check out the [examples](https://github.com/SpulberGeorge/EasyUltrasonic/tree/main/examples) folder in the [EasyUltrasonic](https://github.com/SpulberGeorge/EasyUltrasonic) repository to understand more.
 
