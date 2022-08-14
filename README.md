@@ -13,6 +13,8 @@
 - (Optional - For aqqurate distance values) A DHT temperature/humidity sensor (e.g. DHT 11): [DHT11](https://amzn.to/3SO78zc) / [DHT22](https://amzn.to/3zOOONu)
 - Some male to female wires or a breadboard with male to male wires: [Wires](https://amzn.to/3pkDW5c) / [Breadboard](https://amzn.to/3Ag2BNF)
 
+- Or you can just use an Arduino compatible kit instead of buying the above components (I personally recommend the ones from Elegoo): [Arduino compatible kits](https://amzn.to/3QnoVvm) / [ELEGOO Mega R3 kit](https://amzn.to/3QMi1zt) / [Official Arduino Starter Kit](https://amzn.to/3Am0JUF)
+
 ## Usage
 
 - Include the library so you can use it:
