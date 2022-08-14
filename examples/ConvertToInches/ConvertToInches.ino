@@ -83,7 +83,9 @@ SOFTWARE.
 */
 
 // This sketch uses the 4 Pin Mode with the HC-SR04 sensor
-// Set both the TRIGPIN and ECHOPIN to 5 if you want to use your HC-SR04/Ping))) ultrasonic sensor in the 3 Pin Mode
+
+// Set both the TRIGPIN and ECHOPIN to 5 or the digital pin that is connected to your ultrasonic sensor if you want to use your HC-SR04/Ping))) ultrasonic sensor in the 3 Pin Mode
+// If you want to use the Ping))) sensor in the 3 Pin Mode you will have to modify the attach() function
 
 #include <EasyUltrasonic.h>
 
@@ -96,7 +98,7 @@ void setup() {
   Serial.begin(9600); // Open the serial port
 
   ultrasonic.attach(TRIGPIN, ECHOPIN); // Attaches the ultrasonic sensor on the specified pins on the ultrasonic object
-  // ultrasonic.attach(TRIGPIN, ECHOPIN, 3, 300); // Uncomment if you are using the Ping))) ultrasonic sensor
+  // ultrasonic.attach(TRIGPIN, ECHOPIN, 3, 300); // Uncomment this line and comment the above line if you are using the Ping))) ultrasonic sensor
 }
 
 void loop() {
