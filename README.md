@@ -8,10 +8,10 @@
 - You will need to use at least Arduino IDE 1.0.0 or newer version.
 
 ## Hardware Requirements
-- An Arduino compatible board (e.g. Arduino UNO)
-- A HC-SR04 ultrasonic sensor / A Ping))) ultrasonic sensor
-- (Optional - For aqqurate distance values) A DHT temperature/humidity sensor (e.g. DHT 11)
-- Some female to male wires or a breadboard with male to male wires
+- An Arduino compatible board (e.g. Arduino UNO): https://amzn.to/3bSCGTX
+- A HC-SR04 ultrasonic sensor / A Ping))) ultrasonic sensor: https://amzn.to/3SJka0V / 
+- (Optional - For aqqurate distance values) A DHT temperature/humidity sensor (e.g. DHT 11): https://amzn.to/3QrbSsO / https://amzn.to/3CaUyUV
+- Some female to male wires or a breadboard with male to male wires: https://amzn.to/3SP2vF1 / https://amzn.to/3AhU25X
 
 ## Usage
 
