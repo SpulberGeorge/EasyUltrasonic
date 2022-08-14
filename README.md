@@ -52,11 +52,11 @@ convertToIN(float distaceValueCM); // Returns the converted value from centimete
 ### 3 Pin Mode - Works for the HC-SR04 ultrasonic sensor and the Ping))) ultrasonic sensor -
 
 ```diff
-! If you want to use one of the ultrasonic sensors in the 3 Pin Mode, when you call the attach() function you will need to set the trigPin and the echoPin parameters as the same value !
+! If you want to use the HC-SR04 ultrasonic sensor in the 3 Pin Mode you will have to short the trig pin and the echo pin together so you have only one signal pin !
 ```
 
 ```diff
-! If you want to use the HC-SR04 ultrasonic sensor in the 3 Pin Mode you will have to short the trig pin and the echo pin together so you have only one signal pin !
+! If you want to use one of the ultrasonic sensors in the 3 Pin Mode, when you call the attach() function you will need to set the trigPin and the echoPin parameters as the same value !
 ```
 
 ```c++
