@@ -1,7 +1,7 @@
 /*
 
 Example sketch for the HC-SR04 ultrasonic sensor
-Written by Spulber George
+Written by Spulber George-Marian
 
 REQUIRES the following Arduino library:
 - EasyUltrasonic: https://github.com/SpulberGeorge/EasyUltrasonic
@@ -26,7 +26,7 @@ This sketch prints the distance measured by the ultrasonic sensor in the 4 Pin M
 
 MIT License
 
-Copyright (c) 2022 SpulberGeorge
+Copyright (c) 2022 Spulber George-Marian
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
